@@ -31,8 +31,17 @@ def main():
             print('\n')
             print('Login into your Created Account')
             print('Enter Username')
-            created_username = input()
+            entered_username = input()
             print('Enter Your Password')
+            entered_password = input()
+
+        while entered_username != created_username or entered_password != created_password:
+            print('Entered Username or password is invalid')
+            print('\n')
+            print('Enter Username')
+            entered_username = input()
+            print('Enter Your Password')
+            entered_password = input()
 
 if __name__ == '__main__':
 	main()
