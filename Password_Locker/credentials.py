@@ -43,5 +43,37 @@ def main():
             print('Enter Your Password')
             entered_password = input()
 
+        else:
+            print(f'Welcome! {entered_username} To Your Lockers Account')
+            print('\n')
+
+    elif short_code == 'sn':
+        print('Welcome To Password locker')
+        print('Enter Username')
+        default_username = input()
+       
+        print('Enter Password')
+        default_user_password = input()
+        print('\n')
+
+        while default_user_name!= 'testuser' or default_user_password!=0000:
+            print('Wrong username or password. username "testuser" and pasword "00"')
+            print('Enter Username')
+            default_username = input()
+
+            print('Enter Paswword')
+            default_user_password = input()
+            print('\n')
+
+            else:
+                print('Sign-in Successfully')
+                print('\n')
+                print('\n')
+        elif short_code == 'q':
+            break
+    else:
+        print('Enter a valid code to conitinue')
+
+
 if __name__ == '__main__':
 	main()
