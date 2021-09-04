@@ -16,3 +16,8 @@ class User:
         '''
 
         User.user_list.append(self)
+
+class Credentials:
+    '''
+    this class creates usser credentials
+    '''
