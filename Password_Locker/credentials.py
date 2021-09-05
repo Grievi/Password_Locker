@@ -2,11 +2,15 @@
 from user import User
 
 def main():
-
+    print('')
+    print('-'*100)
     while True:
         print("Hello! Welcome to Password locker")
         print('\n')
-        print("Choose a short code to navigate through: to create new user select 'nw': To sign in to your account 'sn' or 'q' to quit")
+        print('-'*100)
+        print("Choose a short code to navigate through: to create new user select 'nw': To sign in to your account 'sn' ")
+        print('\n')
+        print (" or 'q' to quit")
         short_code = input().lower()
         print('\n')
 
