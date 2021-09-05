@@ -146,10 +146,6 @@ def main():
                 for credential in display_credentials(user_name):
                     print(f'Site Name: {credential.account_name}- password:{credential.password}')
                     print('  ')
-                else:
-                    print('')
-                    print("You don't seem to have any credentials saved yet. Save Now!")
-                    print('')
             else:
                 print('Something went Wrong!Try Again')
                 print('\n')
