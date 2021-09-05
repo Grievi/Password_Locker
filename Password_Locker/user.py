@@ -52,7 +52,13 @@ class Credentials:
 
     @classmethod
     def display_credentials(cls, user_name):
-
+        '''
+        This is a class method that displays user's credentials
+        '''
+        user_credentials_lists = []
+        for credential in cls.user_credentials_list:
+            if credential.user_name == user_name:
+                user_credentials_lists.append() #pass in credentials
 
 
 
