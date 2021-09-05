@@ -1,3 +1,4 @@
+
 class User:
 
     '''
@@ -58,13 +59,8 @@ class Credentials:
         user_credentials_lists = []
         for credential in cls.user_credentials_list:
             if credential.user_name == user_name:
-                user_credentials_lists.append() #pass in credentials
+                user_credentials_lists.append(credential) 
 
-    # @classmethod
-    # def copy_credential(cls, site_name):
-        # '''
-        # Class method that copies a credential's info after the   site's name is entered
-        # '''
 
         
 

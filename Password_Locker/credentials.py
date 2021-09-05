@@ -1,11 +1,11 @@
 
-from credentials import User, Credential
+from user import Credentials, User
 
-def create_user(user_acc, password):
+def create_user(username, password):
     '''
     a new user account function
     ''' 
-    new_user  = User(user_acc, password)
+    new_user  = User(username, password)
     return new_user
 
 def save_user(user):
@@ -13,31 +13,37 @@ def save_user(user):
     A Function that saves th user
     '''
     User.save_user(user)
-def verify_user(user_acc, password):
+def verify_user(username, password):
     '''
-    verify user function that checks user credentials
+    verify user function that checks user sCredentialss
     '''
-    checking_user = Credential.check_user(user_acc, password)
+    checking_user = Credentials.check_user(username, password)
     return checking_user
 
 def create_credential(user_name, website_name, account_username, password):
     '''
     A function that creates the users credentials that is website, account username and account password
     '''
-    new_credential = Credential(user_name, website_name, account_username, password)
+    new_credential = Credentials(user_name, website_name, account_username, password)
     return  new_credential
 
 def save_credential(credential):
-    	'''
+    '''
 	Function to save a newly created credential
 	'''
-	Credential.save_credentials(credential)
+    Credentials.save_credentials(credential)
 
-def copy_credential(site_name):
+def display_credentials(user_name):
 	'''
-	Function to copy a credentials details to the clipboard
+	Function to display credentials saved by a user
 	'''
-	return Credential.copy_credential(site_name)
+	return Credentials.display_credentials(user_name)
+
+# def copy_credential(site_name):
+# 	'''
+# 	Function to copy a credentials details to the clipboard
+# 	'''
+# 	return Credentials.copy_Credentials(site_name)
 
 def main():
     print('')
@@ -46,13 +52,13 @@ def main():
         print("Hello! Welcome to Password locker")
         print('\n')
         print('-'*100)
-        print("Choose a short code to navigate through: to create new user select 'nw': To sign in to your account 'sn' ")
+        print("Choose a short code to navigate through:\n :To create new user select type -'nw'\n :To sign in to your account type 'sn'\n :To create a credential select -'cr'  ")
         print('\n')
-        print (" or 'q' to quit")
+        print (" :or 'q' to quit")
         short_code = input().lower()
         print('\n')
 
-        if short_code == 'nw':
+        if short_code == 'new':
             print('Create Username')
             created_username = input()
 
@@ -62,6 +68,10 @@ def main():
 
             print('confirm password')
             confirm_password =input()
+
+            save_user(create_user((created_username, created_password)))
+            print(' ')
+            print('New Account created succesfully')
 
             while confirm_password != created_password:
                 print('Password did not match Try again!')
@@ -87,6 +97,7 @@ def main():
                 print('Enter Your Password')
                 entered_password = input()
 
+
             else:
                 print(f'Welcome! {entered_username} To Your Lockers Account')
                 print('\n')
@@ -94,23 +105,53 @@ def main():
         elif short_code == 'sn':    
             print('Welcome To Password locker')
             print('Enter Username')
-            default_username = input()
-        
-            print('Enter Password')
-            default_user_password = input()
-            print('\n')
+            user_name = input()
+            print('Enter Your Paasword')
+            password = input()
+            user_exist = verify_user(user_name, password)
 
-            while default_username!= 'user' or default_user_password!= 0000:
-                print('Wrong username or password. username "user" and pasword "0000"')
-                print('Enter Username')
-                default_username = input()
-
-                print('Enter Paswword')
-                default_user_password = input()
-                print('\n')
-
+            if user_exist == user_name:
+                print(" ")
+                print(f'Welcome {user_name}. Please select an option to continue.')
+				
+                while True:
+                    print("-"*100)
+                    print('Select codes: \n cr-Create a Credential \n dc-Display Credentials \n and ex-Exit')
+                    short_code = input().lower()
+                    print('\n')
+                    if short_code == 'ex':
+                        print('You have logged out')
+                        break
+                    else:
+                        print('Enter Your Username and Password')
+        elif short_code == 'cr':
+            print('')
+            print('Enter your credential details:')
+            print('Enter Website name')
+            website_name = input()
+            print('Enter Your Account username')
+            account_username = input()
+            print('Enter your password')
+            password = input()
+                
+            save_credential(create_credential(user_name, website_name, account_username, password))
+            print('')
+            print(f'User Credential created for : Website name {website_name}  - Account Name:{account_username}- Password{password}')
+            print(' ')
+        elif short_code == 'dc':
+            print(' ')
+            if display_credentials(user_name):
+                print('Here is a list of all your credentials')
+                print(' ')
+                for credential in display_credentials(user_name):
+                    print(f'Site Name: {credential.account_name}- password:{credential.password}')
+                    print('  ')
+                else:
+                    print('')
+                    print("You don't seem to have any credentials saved yet. Save Now!")
+                    print('')
             else:
-                print('Sign-in Successfully')
+                print('Something went Wrong!Try Again')
                 print('\n')
                 print('\n')
 
@@ -118,6 +159,7 @@ def main():
                 break
         else:
             print('Enter a valid code to conitinue')
+            print('-'*100)
 
 
 if __name__ == '__main__':
