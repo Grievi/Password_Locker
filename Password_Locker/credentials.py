@@ -1,6 +1,8 @@
+
 from user import User
 
 def main():
+
     while True:
         print("Hello! Welcome to Password locker")
         print('\n')
@@ -19,60 +21,61 @@ def main():
             print('confirm password')
             confirm_password =input()
 
-        while confirm_password != created_password:
-            print('Password did not match Try again!')
-            print('Enter Your Password')
-            created_username = input()
-            print('confirm password')
-            confirm_password =input()
+            while confirm_password != created_password:
+                print('Password did not match Try again!')
+                print('Enter Your Password')
+                created_username = input()
+                print('confirm password')
+                confirm_password =input()
 
-        else:
-            print(f'Congratulations {created_username}! Account creation was succesful')
-            print('\n')
-            print('Login into your Created Account')
-            print('Enter Username')
-            entered_username = input()
-            print('Enter Your Password')
-            entered_password = input()
+            else:
+                print(f'Congratulations {created_username}! Account creation was succesful')
+                print('\n')
+                print('Login into your Created Account')
+                print('Enter Username')
+                entered_username = input()
+                print('Enter Your Password')
+                entered_password = input()
 
-        while entered_username != created_username or entered_password != created_password:
-            print('Entered Username or password is invalid')
-            print('\n')
-            print('Enter Username')
-            entered_username = input()
-            print('Enter Your Password')
-            entered_password = input()
+            while entered_username != created_username or entered_password != created_password:
+                print('Entered Username or password is invalid')
+                print('\n')
+                print('Enter Username')
+                entered_username = input()
+                print('Enter Your Password')
+                entered_password = input()
 
-        else:
-            print(f'Welcome! {entered_username} To Your Lockers Account')
-            print('\n')
+            else:
+                print(f'Welcome! {entered_username} To Your Lockers Account')
+                print('\n')
 
-    elif short_code == 'sn':
-        print('Welcome To Password locker')
-        print('Enter Username')
-        default_username = input()
-       
-        print('Enter Password')
-        default_user_password = input()
-        print('\n')
-
-        while default_user_name!= 'testuser' or default_user_password!=0000:
-            print('Wrong username or password. username "testuser" and pasword "00"')
+        elif short_code == 'sn':    
+            print('Welcome To Password locker')
             print('Enter Username')
             default_username = input()
-
-            print('Enter Paswword')
+        
+            print('Enter Password')
             default_user_password = input()
             print('\n')
+
+            while default_username!= 'testuser' or default_user_password!=0000:
+                print('Wrong username or password. username "testuser" and pasword "00"')
+                print('Enter Username')
+                default_username = input()
+
+                print('Enter Paswword')
+                default_user_password = input()
+                print('\n')
 
             else:
                 print('Sign-in Successfully')
                 print('\n')
                 print('\n')
+
         elif short_code == 'q':
-            break
-    else:
-        print('Enter a valid code to conitinue')
+                break
+        else:
+            print('Enter a valid code to conitinue')
 
 
 if __name__ == '__main__':
