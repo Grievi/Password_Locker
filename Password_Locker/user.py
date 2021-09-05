@@ -39,6 +39,20 @@ class Credentials:
         '''
         This will create an instance of the different site names and the user credentials
         '''
+        self.user_name = user_name
+        self.site_name = site_name
+        self.account_name = account_name
+        self.password = password
+
+    def save_credentials(self):
+        '''
+        Creates a function that saves a new user's credentials
+        '''
+        Credentials.credential_list.append(self)
+
+    @classmethod
+    def display_credentials(cls, user_name):
+
 
 
 
