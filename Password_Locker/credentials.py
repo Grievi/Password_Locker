@@ -1,5 +1,5 @@
 
-from user import User, Credential
+from credentials import User, Credential
 
 def create_user(user_acc, password):
     '''
@@ -13,7 +13,19 @@ def save_user(user):
     A Function that saves th user
     '''
     User.save_user(user)
-def
+def verify_user(user_acc, password):
+    '''
+    verify user function that checks user credentials
+    '''
+    checking_user = Credential.check_user(user_acc, password)
+    return checking_user
+
+def create_credential(user_name, website_name, account_username, password):
+    '''
+    A function that creates the users credentials that is website, account username and account password
+    '''
+    new_credential = Credential(user_name, website_name, account_username, password)
+    return  new_credential
 
 def main():
     print('')
