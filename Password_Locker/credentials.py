@@ -52,9 +52,9 @@ def main():
         print("Hello! Welcome to Password locker")
         print('\n')
         print('-'*100)
-        print("Choose a short code to navigate through:\n :To create new user select type -'nw'\n :To sign in to your account type 'sn'\n :To create a credential select -'cr'  ")
-        print('\n')
+        print("Choose a short code to navigate through:\n :To create new user select type -'nw'\n :To sign in to your account type '-sn'\n :To create a credential select -'cr'  \n:To display credentials type '-dc'")
         print (" :or 'q' to quit")
+        print(' Enter your selected choice:\n')
         short_code = input().lower()
         print('\n')
 
@@ -132,13 +132,15 @@ def main():
             print('Enter Your Account username')
             account_username = input()
             print('Enter your password')
-            password = input()
-                
-            save_credential(create_credential(user_name, website_name, account_username, password))
+            password = input()    
+
+            # else: 
+            save_credential(create_credential(user_name,    website_name, account_username, password))
             print('')
-            print(f'User Credential created for : Website name {website_name}  - Account Name:{account_username}- Password{password}')
+            print(f'User Credential created for : Website name  {website_name}  - Account Name:{account_username}-   Password{password}')
             print(' ')
         elif short_code == 'dc':
+            user_name
             print(' ')
             if display_credentials(user_name):
                 print('Here is a list of all your credentials')
