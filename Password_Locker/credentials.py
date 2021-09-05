@@ -1,5 +1,14 @@
 
-from user import User
+from user import User, Credential
+
+def create_user(user_acc, password):
+    '''
+    a new user account function
+    ''' 
+    new_user  = User(user_acc, password)
+    return new_user
+
+de
 
 def main():
     print('')
