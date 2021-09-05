@@ -36,7 +36,10 @@ class Credentials:
         return current_user
 
     def __init__(self, user_name, site_name, account_name, password):
-        
+        '''
+        This will create an instance of the different site names and the user credentials
+        '''
+
 
 
 
