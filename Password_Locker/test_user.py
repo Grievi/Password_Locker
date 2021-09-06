@@ -1,11 +1,10 @@
 import unittest
-from unittest.case import TestCase
 from user import Credentials, User
 
-class TestUser(unittest.TestCase):
+class TestUser(unittest,User):
     '''
     Test class that defines test cases for the user class   behaviours.
-    
+
     Args:
         unittest.TestCase: helps in creating test cases
     '''
@@ -29,7 +28,7 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.users_list),1)
 
-class TestCredentials(unittest, TestCase):
+class TestCredentials(unittest, Credentials):
 
     def setUp(self):
         '''

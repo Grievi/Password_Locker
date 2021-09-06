@@ -39,20 +39,14 @@ def display_credentials(user_name):
 	'''
 	return Credentials.display_credentials(user_name)
 
-# def copy_credential(site_name):
-# 	'''
-# 	Function to copy a credentials details to the clipboard
-# 	'''
-# 	return Credentials.copy_Credentials(site_name)
-
 def main():
     print('')
     print('-'*100)
     while True:
-        print("Hello! Welcome to Password locker")
+        print("\u001b[32;1mHello! Welcome to Password locker\u001b[0m")
         print('\n')
         print('-'*100)
-        print("Choose a short code to navigate through:\n :To create new user select type -'nw'\n :To sign in to your account type '-sn'\n :To create a credential select -'cr'  \n:To display credentials type '-dc'")
+        print("Choose a short code to navigate through:\n :To create new user select type -'new'\n :To sign in to your account type '-sn'\n :To create a credential select -'cr'  \n:To display credentials type '-dc'")
         print (" :or 'q' to quit")
         print(' Enter your selected choice:\n')
         short_code = input().lower()
@@ -69,7 +63,7 @@ def main():
             print('confirm password')
             confirm_password =input()
 
-            save_user(create_user((created_username, created_password)))
+            save_user(create_user(created_username, created_password))
             print(' ')
             print('New Account created succesfully')
 
@@ -81,7 +75,7 @@ def main():
                 confirm_password =input()
 
             else:
-                print(f'Congratulations {created_username}! Account creation was succesful')
+                print(f'Congratulations {created_username}!   Account creation was succesful')
                 print('\n')
                 print('Login into your Created Account')
                 print('Enter Username')
@@ -89,18 +83,18 @@ def main():
                 print('Enter Your Password')
                 entered_password = input()
 
-            while entered_username != created_username or entered_password != created_password:
-                print('Entered Username or password is invalid')
-                print('\n')
-                print('Enter Username')
-                entered_username = input()
-                print('Enter Your Password')
-                entered_password = input()
+                while entered_username != created_username or entered_password != created_password:
+                    print('Entered Username or password is invalid')
+                    print('\n')
+                    print('Enter Username')
+                    entered_username = input()
+                    print('Enter Your Password')
+                    entered_password = input()
 
 
-            else:
-                print(f'Welcome! {entered_username} To Your Lockers Account')
-                print('\n')
+                else:
+                    print(f'Welcome! {entered_username} To Your         Lockers Account')
+                    print('\n')
 
         elif short_code == 'sn':    
             print('Welcome To Password locker')
@@ -125,6 +119,7 @@ def main():
                     else:
                         print('Enter Your Username and Password')
         elif short_code == 'cr':
+            
             print('')
             print('Enter your credential details:')
             print('Enter Website name')
@@ -135,18 +130,18 @@ def main():
             password = input()    
 
             # else: 
-            save_credential(create_credential(user_name,    website_name, account_username, password))
+            save_credential(create_credential(user_name, website_name, account_username, password))
             print('')
             print(f'User Credential created for : Website name  {website_name}  - Account Name:{account_username}-   Password{password}')
             print(' ')
         elif short_code == 'dc':
-            user_name
-            print(' ')
+            print('Enter Username')
+            user_name=input()
             if display_credentials(user_name):
                 print('Here is a list of all your credentials')
                 print(' ')
                 for credential in display_credentials(user_name):
-                    print(f'Site Name: {credential.account_name}- password:{credential.password}')
+                    print(f'Site Name: {credential.website_name}- Account Name: {credential.account_name} password:{credential.password}')
                     print('  ')
             else:
                 print('Something went Wrong!Try Again')

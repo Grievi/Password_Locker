@@ -36,12 +36,12 @@ class Credentials:
                 current_user = user.first_name
         return current_user
 
-    def __init__(self, user_name, site_name, account_name, password):
+    def __init__(self, user_name, website_name, account_name, password):
         '''
         This will create an instance of the different site names and the user credentials
         '''
         self.user_name = user_name
-        self.site_name = site_name
+        self.website_name = website_name
         self.account_name = account_name
         self.password = password
 
@@ -59,7 +59,8 @@ class Credentials:
         user_credentials_lists = []
         for credential in cls.user_credentials_list:
             if credential.user_name == user_name:
-                user_credentials_lists.append(credential) 
+                user_credentials_lists.append(credential)
+                return user_credentials_lists
 
 
         
