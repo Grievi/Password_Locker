@@ -44,9 +44,8 @@ def main():
     print('-'*60)
     while True:
         print("\u001b[32;1mHello! Welcome to Password locker\u001b[0m")
-        print('\n')
         print('-'*60)
-        print("Choose a short code to navigate through:\n :To create new user select type '\u001b[32;1m-new\u001b[0m'\n :To sign in to your account type '\u001b[32;1m-sn \u001b[0m'\n :To create a credential select '\u001b[32;1m-cr\u001b[0m'  \n:To display credentials type '\u001b[32;1m -dc\u001b[0m'")
+        print("Choose a short code to navigate through:\n :To create new user select type -'\u001b[32;1mnew\u001b[0m'\n :To sign in to your account type -'\u001b[32;1msn \u001b[0m'\n :To create a credential select -'\u001b[32;1mcr\u001b[0m'  \n:To display credentials type -'\u001b[32;1m dc\u001b[0m'")
         print (" :or '\u001b[31;1mq\u001b[0m' to quit")
         print('\u001b[36;1m Enter your selected choice:\n\u001b[0m')
         short_code = input().lower()
@@ -75,7 +74,7 @@ def main():
                 confirm_password =input()
 
             else:
-                print(f'\u001b[32;1mCongratulations {created_username}!   Account creation was succesful\u001b[0m')
+                print(f'\u001b[32;1mCongratulations {created_username}!Account creation was successful\u001b[0m')
                 print('\n')
                 print('\u001b[36;1mLogin into your Created Account\u001b[0m')
                 print('\u001b[36;1mEnter Username\u001b[0m')
@@ -134,7 +133,7 @@ def main():
             # else: 
             save_credential(create_credential(user_name, website_name, account_username, password))
             print('')
-            print(f'\u001b[33;1mUser Credential created for: username {user_name} : Website name  {website_name}  - Account Name:{account_username}-   Password{password}\u001b[0m')
+            print(f'\u001b[33;1mUser Credential created for: username {user_name} ; Website name: {website_name};Account Name:{account_username}- Password   {password}\u001b[0m')
             print(' ')
         elif short_code == 'dc':
             print('Enter Username')
@@ -143,7 +142,7 @@ def main():
                 print('Here is a list of all your credentials')
                 print(' ')
                 for credential in display_credentials(user_name):
-                    print(f'Site Name: {credential.website_name}- Account Name: {credential.account_name} password:{credential.password}')
+                    print(f'Site Name: {credential.website_name}; Account Name: {credential.account_name} password: {credential.password}')
                     print('  ')
             else:
                 print('\u001b[31;1mSomething went Wrong!Try Again')

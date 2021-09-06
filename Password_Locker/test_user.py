@@ -28,7 +28,22 @@ class TestUser(unittest,User):
         self.new_user.save_user()
         self.assertEqual(len(User.users_list),1)
 
+
 class TestCredentials(unittest, Credentials):
+
+    def test_check_user(self):
+        '''
+        Function to test whether the login in function check_user works as expected
+        '''
+        self.new_user = User('JoJo','password')
+        self.new_user.save_user()
+        user2 = User('Sabuni','jamaa')
+        user2.save_user()
+
+        for user in User.users_list:
+            if user.first_name == user2.first_name and user.password == user2.password:
+                current_user = user.first_name
+        return current_user
 
     def setUp(self):
         '''
@@ -44,6 +59,15 @@ class TestCredentials(unittest, Credentials):
          self.assertEqual(self.new_credential.site_name,'Facebook')
          self.assertEqual(self.new_credential.account_name,'Okush')
          self.assertEqual(self.new_credential.password,'okush')
+
+    def test_save_credential(self):
+        '''
+        Test to check if the new credential info is saved into the credentials list
+        '''
+        self.new_credentials.save_credentials()
+        facebook = Credentials('Okush','facebook','Okush','0000')
+        facebook.save_credentials()
+        self.assertEqual(len(Credentials.credentials_list),2)
 
     def tearDown(self):
         '''
