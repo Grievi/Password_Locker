@@ -17,7 +17,7 @@ Access My github and clone this repository in your terminal and run the app usin
 
 git clone https://github.com/Grievi/Password_Locker
 
-cd Password_Locker
+cd Password_Locker/Password_Locker
 
 python3.8 credential.py
 
