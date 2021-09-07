@@ -18,6 +18,8 @@ class User:
 
         User.user_list.append(self)
 
+   
+
 class Credentials:
     '''
     this class creates usser credentials and save their information
@@ -26,14 +28,14 @@ class Credentials:
     user_credentials_list = []
 
     @classmethod
-    def check_user(cls, first_name, password):
+    def check_user(cls, user_name, password):
         '''
 		Method that checks if the username and password entered match entries in the users_list
 		'''
         current_user = ''
         for user in User.user_list:
-            if(user.first_name == first_name and user.password == password):
-                current_user = user.first_name
+            if(user.user_name == user_name and user.password == password):
+                current_user = user.user_name
         return current_user
 
     def __init__(self, user_name, website_name, account_name, password):
@@ -57,10 +59,12 @@ class Credentials:
         This is a class method that displays user's credentials
         '''
         user_credentials_lists = []
+
         for credential in cls.user_credentials_list:
             if credential.user_name == user_name:
                 user_credentials_lists.append(credential)
-                return user_credentials_lists
+
+        return user_credentials_lists
 
 
         

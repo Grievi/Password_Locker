@@ -133,7 +133,7 @@ def main():
             # else: 
             save_credential(create_credential(user_name, website_name, account_username, password))
             print('')
-            print(f'\u001b[33;1mUser Credential created for: username {user_name} ; Website name: {website_name};Account Name:{account_username}- Password   {password}\u001b[0m')
+            print(f'\u001b[33;1mUser Credential created for: username {user_name} ; Website name: {website_name};Account Name:{account_username}- Password {password}\u001b[0m')
             print(' ')
         elif short_code == 'dc':
             print('Enter Username')
@@ -142,10 +142,10 @@ def main():
                 print('Here is a list of all your credentials')
                 print(' ')
                 for credential in display_credentials(user_name):
-                    print(f'Site Name: {credential.website_name}; Account Name: {credential.account_name} password: {credential.password}')
+                    print(f'Websiteite Name: {credential.website_name}; Account Name: {credential.account_name} password: {credential.password}')
                     print('  ')
             else:
-                print('\u001b[31;1mSomething went Wrong!Try Again')
+                print(f'\u001b[31;1m Sorry {user_name}! You Dont Have Any Credentials saved Yet!')
                 print('\n')
                 print('\n')
 

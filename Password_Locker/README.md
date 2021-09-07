@@ -27,7 +27,7 @@ python3.8 credential.py
 
 ## Known Bugs
 
-None at the moment.
+Could not manage to test display credential method, hope to work on it soon
 
 ## Support and contact details
 
